@@ -56,9 +56,35 @@ class RedisFetcher {
         });
     }
 
+    
+    async startFetchingGraph() {
+        var self = this;
+        while (true) {
+            let result = [];
+            let errorOccured = false;
+            for (let i = 0; i < 50; i++) {
+                let graphValue = null;
+                try {
+                    graphValue = await self.getKeyAsync(i);
+                } catch (error) {
+                    errorOccured = true;
+                    break;
+                }
+                result.push({[i]: graphValue })
+                console.log(i, graphValue);
+            }
+            if (errorOccured) {
+                continue;
+            } else if (self.sendGraphCallback !== null) {
+                self.sendGraphCallback(result)
+            }
+            await this.timeout(500);
+        }
+
+    }
 
 
-    async startFetching() {
+    async startFetchingValue() {
         var self = this;
         while (true) {
             let result = null;

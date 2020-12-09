@@ -36,4 +36,6 @@ io.on('connection', (client) => {
 
 });
 
-redisFetcher.startFetching();
+redisFetcher.startFetchingValue();
+redisFetcher.startFetchingGraph();
+console.log("Fetching continuously");

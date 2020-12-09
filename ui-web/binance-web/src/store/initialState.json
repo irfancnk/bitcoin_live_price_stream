@@ -1,5 +1,7 @@
 {
-    "graph" : {},
+    "graph" : {
+        "data": []
+    },
     "value": {
         "btcValue": 0
     }
