@@ -1,17 +1,26 @@
+// PACKAGES
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import {Provider} from 'react-redux';
+// MODULES
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import storeFactory from './store/index.js';
+import initSocket from './service/socketService';
+import initialState from './store/initialState';
+
+
+// STYLES
+import './index.css';
+
+const store = storeFactory(initialState);
+initSocket(store);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

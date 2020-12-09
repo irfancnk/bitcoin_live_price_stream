@@ -5,4 +5,14 @@
 
 .content-graph {
     border: 1px solid white;
+    border-radius: 4px;
+}
+
+.content-control {
+    background-color: white;
+    border-radius: 4px;
+}
+
+.price-span {
+    color: black;
 }

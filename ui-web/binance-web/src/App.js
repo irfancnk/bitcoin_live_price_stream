@@ -1,6 +1,5 @@
 // PACKAGES
 import React, { Component } from 'react';
-import { Chart } from 'react-charts';
 // import { connect } from 'react-redux';
 // MODULES
 import NavigationBar from './components/NavigationBar';
