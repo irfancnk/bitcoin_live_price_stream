@@ -52,6 +52,7 @@ class RequestController {
     async startRequestService() {
         let currentAskPrice = null;
         while (true) {
+            console.time("Fetching Time");
             let t0 = Date.now();
             currentAskPrice = null;
             try {
@@ -59,16 +60,22 @@ class RequestController {
             } catch (e) {
                 console.log(e);
                 continue;
+            } finally {
+                console.timeEnd("Fetching Time");
             }
+
             if (currentAskPrice) {
                 let isSaved = null;
+                console.time("Saving Time");
                 try {
                     isSaved = await this.redisController.savePrice(currentAskPrice);
                 } catch (e) {
                     console.log(e);
+                } finally {
+                    console.timeEnd("Saving Time");
                 }
                 let t1 = Date.now();
-                console.log(`Ask Price: ${currentAskPrice}, estimated process time: ${t1 - t0}ms, ${isSaved}.`);
+                console.log(`${isSaved} ask Price >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ${currentAskPrice}.`);
             }
             await this.timeout(20);
         }

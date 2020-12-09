@@ -32,7 +32,7 @@ class RedisController {
                 console.log(e);
                 return reject(e);
             }
-            resolve('saved');
+            resolve('Saved');
             if (self.valuesList.length >= 50) {
                 self.valuesList.shift();
             }
@@ -42,7 +42,7 @@ class RedisController {
                 prices.push(i);
                 prices.push(self.valuesList[i]);
             }
-            console.log(prices);
+            // console.log(prices);
             self.redisClient.mset(prices, (err, reply) => {
                 if (err) {
                     console.log(err);
@@ -52,7 +52,8 @@ class RedisController {
     }
 
     /**
-    * Returns an awaitable promise that resolves given value is set into RedisDB
+    * Returns an awaitable promise that resolves after given value is saved into
+    * RedisDB
     * @param {key} desired key name of the pair
     * @param {value} desired value of the pair
     */

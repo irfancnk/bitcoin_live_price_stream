@@ -3,6 +3,7 @@
 const RedisController = require('./redisController').RedisController;
 const RequestController = require('./requestController').RequestController;
 
+
 class BinanceService {
 
     constructor() {
