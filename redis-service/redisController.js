@@ -9,8 +9,7 @@ const { promisify } = require("util");
 class RedisController {
 
     /**
-    * Create an instance of RequestController
-    * @param {redisController} an instance of RedisController class
+    * Create an instance of RedisController
     */
     constructor() {
         this.redisClient = redis.createClient();
