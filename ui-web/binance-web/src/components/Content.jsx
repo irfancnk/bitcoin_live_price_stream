@@ -62,10 +62,10 @@ class Content extends Component {
                                         {"BTC ask price value: "}{this.props.value.btcValue}
                                     </span>
                                     <button className="btn btn-success m-1 w-75">
-                                        Buy
+                                        Strong Buy
                                     </button>
                                     <button className="btn btn-danger m-1 w-75">
-                                        Sell
+                                        Strong Sell
                                     </button>
 
                                 </div>
